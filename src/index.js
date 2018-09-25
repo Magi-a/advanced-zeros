@@ -29,7 +29,7 @@ module.exports = function getZerosCount(number, base) {
     fact.push(1);
   }
 
-  console.log(fact);
+  //console.log(fact);
   
   ////
  
@@ -54,11 +54,11 @@ module.exports = function getZerosCount(number, base) {
     res += temp;
   }  
  }
-
+/*
  console.log(fact);
  console.log(factDel);
- console.log(res);
+ console.log(res);*/
  return res; 
-
+ //console.log(res);
 
 }
