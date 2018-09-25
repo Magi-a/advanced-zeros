@@ -21,6 +21,8 @@ module.exports = function getZerosCount(number, base) {
     }
   }
 
+  // still not using
+  
   if(fact.length === 0){
     fact.push(base);
   }
@@ -35,12 +37,18 @@ module.exports = function getZerosCount(number, base) {
  
   var factDel = 0; 
 
+  var finDel = 1;
+
   if(fact.length === 1){
     factDel = fact[0];
   } else {
     factDel = Math.max.apply(null, fact);
+    finDel = fact.filter(function(el){return el === factDel}).length;
   }
 
+  // check finDel
+
+  //
 
  for(var i = 1; i < 1000000000; i++){
    
@@ -54,11 +62,14 @@ module.exports = function getZerosCount(number, base) {
     res += temp;
   }  
  }
-/*
+
+
  console.log(fact);
  console.log(factDel);
- console.log(res);*/
- return res; 
+ console.log(finDel);
+ console.log(res);
+
+ return Math.floor(res/finDel); 
  //console.log(res);
 
 }
