@@ -36,6 +36,7 @@ module.exports = function getZerosCount(number, base) {
   ////
  
   var factDel = 0; 
+  var maxFactDel = 0;
 
   var finDel = 1;
 
@@ -43,10 +44,20 @@ module.exports = function getZerosCount(number, base) {
     factDel = fact[0];
   } else {
     factDel = Math.max.apply(null, fact);
+    maxFactDel = factDel;
     finDel = fact.filter(function(el){return el === factDel}).length;
   }
 
   // check finDel
+
+  for(let i = 0; i < fact.length; i++){
+
+    if(fact.filter(function(el){return el === fact[i]}).length >= factDel){
+      factDel = fact[i];
+      finDel = fact.filter(function(el){return el === factDel}).length;
+    }
+
+  }
 
   //
 
@@ -63,11 +74,11 @@ module.exports = function getZerosCount(number, base) {
   }  
  }
 
-
+/*
  console.log(fact);
  console.log(factDel);
  console.log(finDel);
- console.log(res);
+ console.log(res);*/
 
  return Math.floor(res/finDel); 
  //console.log(res);
